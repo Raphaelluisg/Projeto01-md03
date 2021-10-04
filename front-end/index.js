@@ -14,7 +14,7 @@ const getAnimes = async () => {
                 <img src="${anime.image}" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title">${anime.title}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">${anime.info}</p>
                 <p class="card-text">Gender: ${anime.gender}</p>
                 <p class="card-text">Rate: ${anime.rate}</p>
                 <button type="button" class="btn btn-primary" onclick="putAnime(${anime.id})">Editar</button>
@@ -32,12 +32,14 @@ const submitForm = async (event) => {
 
     let title = document.getElementById('title');
     let image = document.getElementById('image');
+    let info = document.getElementById('info');
     let gender = document.getElementById('gender');
     let rate = document.getElementById('rate');
 
     const anime = {
         title: title.value,
         image: image.value,
+        info: info.value,
         gender: gender.value,
         rate: rate.value
     }
@@ -75,6 +77,7 @@ const submitForm = async (event) => {
 
     title.value = '';
     image.value = '';
+    info.value = '';
     gender.value = '';
     rate.value = '';
 
@@ -94,11 +97,13 @@ const putAnime = async (id) => {
   
     let titleChange = document.getElementById('title');
     let imageChange = document.getElementById('image');
+    let infoChange = document.getElementById('info');
     let genderChange = document.getElementById('gender');
     let rateChange = document.getElementById('rate');
     
     titleChange.value = anime.title;
     imageChange.value = anime.image;
+    infoChange.value = anime.info;
     genderChange.value = anime.gender;
     rateChange.value = anime.rate  
 }
